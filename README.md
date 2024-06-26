@@ -1,4 +1,4 @@
-# StudentMangerSystem
+# TeacherMangerSystem
 
 ## Dev
 
