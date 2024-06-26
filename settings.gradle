@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StudentMangerSystem"
+rootProject.name = "TeacherMangerSystem"
 include ':app'
