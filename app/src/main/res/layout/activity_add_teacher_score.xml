@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bysj.yrj.AddStudentScoreActivity" >
+    tools:context="com.bysj.yrj.AddTeacherScoreActivity" >
 
     <TextView
         android:id="@+id/textView1"
@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="学生成绩添加"
+        android:text="教师信息添加"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center|center_horizontal"
-            android:text="学\t\t\t\t号：" />
+            android:text="工\t\t\t\t号：" />
 
         <TextView
             android:id="@+id/addscorenumtext"
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center|center_horizontal"
-            android:text="Android应用开发：" />
+            android:text="联系方式：" />
 
         <EditText
             android:id="@+id/addscoreandroidtext"
@@ -101,11 +101,11 @@
             android:layout_width="wrap_content"
             android:layout_height="31dp"
             android:gravity="center|center_horizontal"
-            android:text="JAVA高级应用：" />
+            android:text="家庭地址：" />
 
         <EditText
             android:id="@+id/addscorejavatext"
-            android:layout_width="210dp"
+            android:layout_width="255dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -119,15 +119,15 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="29dp"
             android:gravity="center|center_horizontal"
-            android:text="HTML移动WEB：" />
+            android:text="职称：" />
 
         <EditText
             android:id="@+id/addscorehtmltext"
-            android:layout_width="211dp"
-            android:layout_height="wrap_content" >
+            android:layout_width="252dp"
+            android:layout_height="wrap_content">
 
             <requestFocus />
         </EditText>
@@ -145,7 +145,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请输入学号:" />
+            android:text="请输入工号:" />
 
         <EditText
             android:id="@+id/numeditscore"

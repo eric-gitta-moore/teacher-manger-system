@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:text="学生信息添加"
+        android:text="教师信息添加"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -25,7 +25,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学\t\t号：" />
+            android:text="工\t\t号：" />
 
         <EditText
             android:id="@+id/addnumedit"
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center|center_horizontal"
-            android:text="专\t\t业：" />
+            android:text="授\t\t课：" />
 
         <Spinner
             android:id="@+id/spinner1"

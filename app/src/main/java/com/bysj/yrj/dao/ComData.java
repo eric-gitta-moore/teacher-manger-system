@@ -1,7 +1,7 @@
 package com.bysj.yrj.dao;
 
-import com.bysj.yrj.bean.StudentInfo;
-import com.bysj.yrj.bean.StudentScore;
+import com.bysj.yrj.bean.TeacherInfo;
+import com.bysj.yrj.bean.TeacherScore;
 import com.bysj.yrj.bean.UserInfo;
 
 /**
@@ -10,6 +10,6 @@ import com.bysj.yrj.bean.UserInfo;
  */
 public class ComData {
    public static UserInfo utem=null;//登陆成功的用户信息
-   static public StudentInfo item=null;//存储在学生信息维护中 点击列表 显示的信息
-   static public StudentScore stem=null;//存储在学生成绩维护中 点击列表 显示的信息
+   static public TeacherInfo item=null;//存储在教师信息维护中 点击列表 显示的信息
+   static public TeacherScore stem=null;//存储在教师信息维护中 点击列表 显示的信息
 }

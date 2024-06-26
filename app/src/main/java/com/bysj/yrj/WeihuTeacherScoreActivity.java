@@ -14,25 +14,25 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bysj.yrj.bean.StudentScore;
-import com.bysj.yrj.dao.AddStudentScoreDao;
+import com.bysj.yrj.bean.TeacherScore;
+import com.bysj.yrj.dao.AddTeacherScoreDao;
 import com.bysj.yrj.dao.ComData;
 
 import java.util.ArrayList;
 
-public class WeihuStudentScoreActivity extends Activity {
+public class WeihuTeacherScoreActivity extends Activity {
 	//成员变量
 	Button weihuscorebut;
 	TextView weihuscoreedit;
 	ListView listView;
-	ArrayList<StudentScore> adata;//存储 查询的结果
+	ArrayList<TeacherScore> adata;//存储 查询的结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_weihu_student_score);
+		setContentView(R.layout.activity_weihu_teacher_score);
 		//调用方法进行初始化
 				this.init();
-				//为根据学号进行查询按钮添加事件监听
+				//为根据工号进行查询按钮添加事件监听
 				this.weihuscorebut.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -63,18 +63,18 @@ public class WeihuStudentScoreActivity extends Activity {
 					this.listView=(ListView) findViewById(R.id.listView12);
 				}
 				/**
-				 *根据学号查询单个学生成绩 数据并显示在ListView
+				 *根据工号查询单个教师信息 数据并显示在ListView
 				 * @param type
 				 */
 				public void shownumscoreData(String num){
 					//1.调用 相关方法  查询数据
-					AddStudentScoreDao adao=new AddStudentScoreDao(this);
+					AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
 					this.adata=adao.getScorenumData(num);
 					//2.构建列表搜需要的数据源
 					ArrayList<String> sdata=new ArrayList<String>();
 					for(int i=0;i<this.adata.size();i++){
 						//从仓库中 读取 第i条 记录
-						StudentScore tem=this.adata.get(i);
+						TeacherScore tem=this.adata.get(i);
 						//构建列表 每行显示内容
 						String str=tem.getNum()+"\t\t"+tem.getName()+"\t\t"+tem.getAndroid()+"\t\t"+tem.getJava()+"\t\t"+tem.getHtml();
 						//添加数据源
@@ -86,12 +86,12 @@ public class WeihuStudentScoreActivity extends Activity {
 					this.listView.setAdapter(adapter);	
 				}
 				/**
-				 * 用户点击 查询出的学生成绩列表 事件处理
+				 * 用户点击 查询出的教师信息列表 事件处理
 				 */
 				private void listAction(int num){
 				     //1.从数据中 获取第 num的数据
-					StudentScore tem=this.adata.get(num);
-					//2.将获取的数据存储到公共数据区   ---在学生成绩维护界面 获取
+					TeacherScore tem=this.adata.get(num);
+					//2.将获取的数据存储到公共数据区   ---在教师信息维护界面 获取
 					ComData.stem=tem;
 					//3.跳转到 成绩修改 删除界面
 					Intent intent=new Intent(this,RepairStudentScoreActivity.class);

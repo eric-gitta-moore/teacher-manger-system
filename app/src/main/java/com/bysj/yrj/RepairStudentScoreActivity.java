@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bysj.yrj.bean.StudentScore;
-import com.bysj.yrj.dao.AddStudentScoreDao;
+import com.bysj.yrj.bean.TeacherScore;
+import com.bysj.yrj.dao.AddTeacherScoreDao;
 import com.bysj.yrj.dao.ComData;
 
 public class RepairStudentScoreActivity extends Activity {
@@ -22,7 +22,7 @@ public class RepairStudentScoreActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_repair_student_score);
+		setContentView(R.layout.activity_repair_teacher_score);
 		//调用方发 初始化 声明控件对象
 		this.init();
 		//调用方法   公共数据区 获取数据并显示
@@ -36,7 +36,7 @@ public class RepairStudentScoreActivity extends Activity {
 						saveAction();
 					}
 				});
-				//删除成绩按钮
+				//删除信息按钮
 				this.delbut.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -62,7 +62,7 @@ public class RepairStudentScoreActivity extends Activity {
 	 */
 	private void showOldStudentData(){
 		//获取存储的数据
-		StudentScore tem=ComData.stem;
+		TeacherScore tem=ComData.stem;
 		//显示获取的数据
 		this.repairnum.setText(tem.getNum());
 		this.repairname.setText(tem.getName());
@@ -71,21 +71,21 @@ public class RepairStudentScoreActivity extends Activity {
 		this.rephtml.setText(tem.getHtml());
 	}
 	/**
-	 * 删除 学生成绩按钮事件功能
+	 * 删除 教师信息按钮事件功能
 	 */
 	private void deleteAction(){
 		String  num=ComData.stem.getNum();
 		//调用方法 删除相关信息
-		AddStudentScoreDao adao=new AddStudentScoreDao(this);
+		AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
     	long n=adao.deleteById(num);
-    	String mes="学生成绩删除失败";
+    	String mes="教师信息删除失败";
     	if(n>0){
-    		mes="学生成绩删除成功";
+    		mes="教师信息删除成功";
     	}
     	Toast.makeText(this, mes, Toast.LENGTH_LONG).show();
 	}
 	/**
-	 * 保存学生成绩按钮事件功能
+	 * 保存教师信息按钮事件功能
 	 */
 	private void saveAction(){
     	//1.获取用户输入的成绩（用户修改的成绩）
@@ -101,12 +101,12 @@ public class RepairStudentScoreActivity extends Activity {
     	ComData.stem.setJava(java);
     	ComData.stem.setHtml(html);
     	//调用 相关方法 修改数据库
-    	AddStudentScoreDao adao=new AddStudentScoreDao(this);
+    	AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
     	long n=adao.updateById(ComData.stem);
     	//根据结果显示
-    	String mes="学生成绩修改失败";
+    	String mes="教师信息修改失败";
     	   if(n>0){
-    		   mes="学生成绩修改成功";
+    		   mes="教师信息修改成功";
     	   }
     	Toast.makeText(this, mes, Toast.LENGTH_LONG).show();
 	}

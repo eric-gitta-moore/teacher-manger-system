@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bysj.yrj.ShowStudentInfoActivity" >
+    tools:context="com.bysj.yrj.ShowTeacherInfoActivity" >
 
     <TextView
         android:id="@+id/textView1"
@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="学生信息查询"
+        android:text="教师信息查询"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:id="@+id/showallbutton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="查询所有学生信息" />
+            android:text="查询所有教师信息" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,7 +46,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请输入学号:" />
+            android:text="请输入工号:" />
 
         <EditText
             android:id="@+id/numedit"

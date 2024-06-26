@@ -11,26 +11,26 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bysj.yrj.bean.StudentInfo;
-import com.bysj.yrj.dao.AddStudentInfoDao;
+import com.bysj.yrj.bean.TeacherInfo;
+import com.bysj.yrj.dao.AddTeacherInfoDao;
 
 import java.util.ArrayList;
 
-public class ShowStudentInfoActivity extends Activity {
+public class ShowTeacherInfoActivity extends Activity {
 	//成员变量
 	Button butall,butshow;
 	TextView numedit;
 	ListView listshow;
-	ArrayList<StudentInfo> adata;//存储 查询的结果
+	ArrayList<TeacherInfo> adata;//存储 查询的结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_show_student_info);
+		setContentView(R.layout.activity_show_teacher_info);
 		//调用方法进行初始化
 		this.init();
-		//showdata在方法初始化之后调用进入直接进行显示学生的信息
+		//showdata在方法初始化之后调用进入直接进行显示教师的信息
 //		this.showData();
-		//为查询所有学生信息按钮事件添加监听
+		//为查询所有教师信息按钮事件添加监听
 		this.butall.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -40,7 +40,7 @@ public class ShowStudentInfoActivity extends Activity {
 				showData();
 			}
 		});
-		//根据学号查询所有学生信息按钮添加监听
+		//根据工号查询所有教师信息按钮添加监听
 		this.butshow.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -61,18 +61,18 @@ public class ShowStudentInfoActivity extends Activity {
 		this.listshow=(ListView) findViewById(R.id.listView1);
 	}
 	/**
-	 *查询所有学生信息 数据表并显示
+	 *查询所有教师信息 数据表并显示
 	 * @param type
 	 */
 	private void showData(){
 		//1.调用 相关方法  插寻数据
-		AddStudentInfoDao adao=new AddStudentInfoDao(this);
+		AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
 		this.adata=adao.getStudentData();
 		//2.构建列表搜需要的数据源
 		ArrayList<String> sdata=new ArrayList<String>();
 		for(int i=0;i<this.adata.size();i++){
 			//从仓库中 读取 第i条 记录
-			StudentInfo tem=this.adata.get(i);
+			TeacherInfo tem=this.adata.get(i);
 			//构建列表 每行显示内容
 			String str=tem.getNum()+"\t\t"+tem.getName()+"\t\t"+tem.getSex()+"\t\t"+tem.getAge()+"\t\t"+tem.getPro()+"\t\t"+tem.getMark();
 			//添加数据源
@@ -84,18 +84,18 @@ public class ShowStudentInfoActivity extends Activity {
 		this.listshow.setAdapter(adapter);	
 	}
 	/**
-	 *根据学号查询单个学生信息 数据并显示
+	 *根据工号查询单个教师信息 数据并显示
 	 * @param type
 	 */
 	public void shownumData(String num){
 		//1.调用 相关方法  查询数据
-		AddStudentInfoDao adao=new AddStudentInfoDao(this);
+		AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
 		this.adata=adao.getStudentnumData(num);
 		//2.构建列表搜需要的数据源
 		ArrayList<String> sdata=new ArrayList<String>();
 		for(int i=0;i<this.adata.size();i++){
 			//从仓库中 读取 第i条 记录
-			StudentInfo tem=this.adata.get(i);
+			TeacherInfo tem=this.adata.get(i);
 			//构建列表 每行显示内容
 			String str=tem.getNum()+"\t\t"+tem.getName()+"\t\t"+tem.getSex()+"\t\t"+tem.getAge()+"\t\t"+tem.getPro()+"\t\t"+tem.getMark();
 			//添加数据源

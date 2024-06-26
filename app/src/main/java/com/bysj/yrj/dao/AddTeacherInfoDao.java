@@ -6,20 +6,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.bysj.yrj.bean.StudentInfo;
+import com.bysj.yrj.bean.TeacherInfo;
 
 import java.util.ArrayList;
 
 /**
- * 学生信息添加表 相关
+ * 教师信息添加表 相关
  * @author k01
  *
  */
-public class AddStudentInfoDao {
+public class AddTeacherInfoDao {
 	//成员变量
 	MySqitHelper myhelper;//数据库的连接
 	SQLiteDatabase st;//数据库管理员
-	String TB_NAME="AddInfotb";//学生的信息表
+	String TB_NAME="AddInfotb";//教师的信息表
 	String COL1="_id";
 	String COL2="num";
 	String COL3="name";
@@ -28,7 +28,7 @@ public class AddStudentInfoDao {
 	String COL6="pro";
 	String COL7="mark";
 	//构造方法
-		public AddStudentInfoDao(Context context){
+		public AddTeacherInfoDao(Context context){
 			//创建打开数据库
 			this.myhelper=new MySqitHelper(context);
 			//连接，初始化管理员
@@ -46,15 +46,15 @@ public class AddStudentInfoDao {
 				this.st.execSQL(sql);
 			} catch (Exception e) {
 				// 数据表 创建 异常
-				Log.e("学生信息表创建异常",e.toString());
+				Log.e("教师信息表创建异常",e.toString());
 			}
 		}
 /**
- * 添加学生信息 
+ * 添加教师信息 
 * @param num,name,sex,age,pro,mark---包装为一个 StudentInfo对象
 * @return long
  */
-		public long addStudentInfo(StudentInfo tem){
+		public long addStudentInfo(TeacherInfo tem){
 			ContentValues values=new ContentValues();
 			values.put(COL2, tem.getNum());
 			values.put(COL3, tem.getName());
@@ -69,14 +69,14 @@ public class AddStudentInfoDao {
 		}
 
 		/**
-		 * 查询添加的所有学生信息  ，按所有进行查询
+		 * 查询添加的所有教师信息  ，按所有进行查询
 		 *@parma all
 		 *@return ArrayList<StudentInfo>
 		 */
-		public ArrayList<StudentInfo> getStudentData(){
+		public ArrayList<TeacherInfo> getStudentData(){
 			//初始化一个对象 
-			ArrayList<StudentInfo> adata=new ArrayList<StudentInfo>();
-			//查询添加的学生信息表中所有的学生信息
+			ArrayList<TeacherInfo> adata=new ArrayList<TeacherInfo>();
+			//查询添加的教师信息表中所有的教师信息
 			String sql="select * from  "+TB_NAME;
 			
 			//管理员 发送查寻指令 
@@ -91,8 +91,8 @@ public class AddStudentInfoDao {
 				String age=cursor.getString(cursor.getColumnIndex(COL5));
 				String pro=cursor.getString(cursor.getColumnIndex(COL6));
 				String mark=cursor.getString(cursor.getColumnIndex(COL7));
-				//创建一个对象，进行初始化学生信息的相关bean
-				StudentInfo tem=new StudentInfo();
+				//创建一个对象，进行初始化教师信息的相关bean
+				TeacherInfo tem=new TeacherInfo();
 				//用初始化的字段进行设置 相关的信息
 				tem.setId(id);
 				tem.setNum(num);
@@ -101,7 +101,7 @@ public class AddStudentInfoDao {
 				tem.setAge(age);
 				tem.setPro(pro);
 				tem.setMark(mark);
-				//将相关的数据进行添加到初始化的学生信息表的相关存储中...
+				//将相关的数据进行添加到初始化的教师信息表的相关存储中...
 				adata.add(tem);
 			}
 			cursor.close();//关闭查询
@@ -110,13 +110,13 @@ public class AddStudentInfoDao {
 			return adata;//
 		}
 		/**
-		 * 查询添加的学生信息  按学号进行查询
+		 * 查询添加的教师信息  按工号进行查询
 		 *@parma num0
 		 *@return ArrayList<StudentInfo>
 		 */
-		public ArrayList<StudentInfo> getStudentnumData(String num0){ 
-			ArrayList<StudentInfo> adata=new ArrayList<StudentInfo>();
-			//根据用户输入的学号查询单个学生信息
+		public ArrayList<TeacherInfo> getStudentnumData(String num0){
+			ArrayList<TeacherInfo> adata=new ArrayList<TeacherInfo>();
+			//根据用户输入的工号查询单个教师信息
 			String sql="select * from  "+TB_NAME+"  where "+COL2+"=?";
 			//管理员 发送查寻指令 
 			Cursor cursor=this.st.rawQuery(sql, new  String[]{num0});
@@ -131,7 +131,7 @@ public class AddStudentInfoDao {
 				String pro=cursor.getString(cursor.getColumnIndex(COL6));
 				String mark=cursor.getString(cursor.getColumnIndex(COL7));
 				//
-				StudentInfo tem=new StudentInfo();
+				TeacherInfo tem=new TeacherInfo();
 				//
 				tem.setId(id);
 				tem.setNum(num);
@@ -149,7 +149,7 @@ public class AddStudentInfoDao {
 			return adata;
 		}
 		/**
-		 * 根据 学号删除 对应的学生信息
+		 * 根据 工号删除 对应的教师信息
 		 * @param num
 		 * @return long
 		 */
@@ -160,11 +160,11 @@ public class AddStudentInfoDao {
 			return n;
 		}
 		/**
-		 * 学生信息数据修改
+		 * 教师信息数据修改
 		 * @param num,name,sex,age,pro,mark---包装为 StudentInfo 类对象
 		 * @return long
 		 */
-		public long updateById(StudentInfo tem){
+		public long updateById(TeacherInfo tem){
 			ContentValues values=new ContentValues();
 			//设置要进行 修改的字段值
 			values.put(COL2, tem.getNum());

@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bysj.yrj.WeihuStudentScoreActivity" 
+    tools:context="com.bysj.yrj.WeihuTeacherScoreActivity"
     android:background="@drawable/bg3">
 <ListView
         android:id="@+id/listView12"
@@ -24,7 +24,7 @@
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="59dp"
-    android:text="学生成绩维护"
+    android:text="教师信息维护"
     android:textSize="30sp" />
 
 <LinearLayout
@@ -39,7 +39,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="请输入学号:" />
+        android:text="请输入工号:" />
 
     <EditText
         android:id="@+id/numscoreedit"

@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bysj.yrj.bean.StudentScore;
-import com.bysj.yrj.dao.AddStudentScoreDao;
+import com.bysj.yrj.bean.TeacherScore;
+import com.bysj.yrj.dao.AddTeacherScoreDao;
 
 import java.util.ArrayList;
 
@@ -21,16 +21,16 @@ public class ShowStudentScoreActivity extends Activity {
 	Button butscoreall,butscoreshow;
 	TextView scoreedit;
 	ListView listshow;
-	ArrayList<StudentScore> adata;//存储 查询的结果
+	ArrayList<TeacherScore> adata;//存储 查询的结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_student_score);
 		//调用方法进行初始化
 				this.init();
-				//showdata在方法初始化之后调用进入直接进行显示学生的信息
+				//showdata在方法初始化之后调用进入直接进行显示教师的信息
 //				this.showData();
-				//为查询所有学生信息按钮事件添加监听
+				//为查询所有教师信息按钮事件添加监听
 				this.butscoreall.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -40,7 +40,7 @@ public class ShowStudentScoreActivity extends Activity {
 						showscoreData();
 					}
 				});
-				//根据学号查询所有学生信息按钮添加监听
+				//根据工号查询所有教师信息按钮添加监听
 				this.butscoreshow.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -61,18 +61,18 @@ public class ShowStudentScoreActivity extends Activity {
 			this.listshow=(ListView) findViewById(R.id.listView11);
 		}
 		/**
-		 *查询所有学生成绩数据表并显示在ListView
+		 *查询所有教师信息数据表并显示在ListView
 		 * @param type
 		 */
 		private void showscoreData(){
 			//1.调用 相关方法  插寻数据
-			AddStudentScoreDao adao=new AddStudentScoreDao(this);
+			AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
 			this.adata=adao.getallscoreData();
 			//2.构建列表搜需要的数据源
 			ArrayList<String> sdata=new ArrayList<String>();
 			for(int i=0;i<this.adata.size();i++){
 				//从仓库中 读取 第i条 记录
-				StudentScore tem=this.adata.get(i);
+				TeacherScore tem=this.adata.get(i);
 				//构建列表 每行显示内容
 				String str=tem.getNum()+"\t\t"+tem.getName()+"\t\t"+tem.getAndroid()+"\t\t"+tem.getJava()+"\t\t"+tem.getHtml();
 				//添加数据源
@@ -84,18 +84,18 @@ public class ShowStudentScoreActivity extends Activity {
 			this.listshow.setAdapter(adapter);	
 		}
 		/**
-		 *根据学号查询单个学生成绩 数据并显示在ListView
+		 *根据工号查询单个教师信息 数据并显示在ListView
 		 * @param type
 		 */
 		public void shownumscoreData(String num){
 			//1.调用 相关方法  查询数据
-			AddStudentScoreDao adao=new AddStudentScoreDao(this);
+			AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
 			this.adata=adao.getScorenumData(num);
 			//2.构建列表搜需要的数据源
 			ArrayList<String> sdata=new ArrayList<String>();
 			for(int i=0;i<this.adata.size();i++){
 				//从仓库中 读取 第i条 记录
-				StudentScore tem=this.adata.get(i);
+				TeacherScore tem=this.adata.get(i);
 				//构建列表 每行显示内容
 				String str=tem.getNum()+"\t\t"+tem.getName()+"\t\t"+tem.getAndroid()+"\t\t"+tem.getJava()+"\t\t"+tem.getHtml();
 				//添加数据源

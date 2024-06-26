@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MySqitHelper extends SQLiteOpenHelper {
     //
-	static String DB_NAME="studentsystem.db";
+	static String DB_NAME="system.db";
 	static int version=1;
 	//构造方法 
 	public MySqitHelper(Context context){

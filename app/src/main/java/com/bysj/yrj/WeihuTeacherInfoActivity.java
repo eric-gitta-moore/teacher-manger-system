@@ -14,25 +14,25 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bysj.yrj.bean.StudentInfo;
-import com.bysj.yrj.dao.AddStudentInfoDao;
+import com.bysj.yrj.bean.TeacherInfo;
+import com.bysj.yrj.dao.AddTeacherInfoDao;
 import com.bysj.yrj.dao.ComData;
 
 import java.util.ArrayList;
 
-public class WeihuStudentInfoActivity extends Activity {
+public class WeihuTeacherInfoActivity extends Activity {
 	//成员变量
 		Button butshow;
 		TextView numedit;
 		ListView listshow;
-		ArrayList<StudentInfo> adata;//存储 查询的结果
+		ArrayList<TeacherInfo> adata;//存储 查询的结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_weihu_student_info);
+		setContentView(R.layout.activity_weihu_teacher_info);
 		//调用方法进行初始化
 		this.init();
-		//为根据学号进行查询按钮添加事件监听
+		//为根据工号进行查询按钮添加事件监听
 		this.butshow.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -63,18 +63,18 @@ public class WeihuStudentInfoActivity extends Activity {
 			this.listshow=(ListView) findViewById(R.id.listView1);
 		}
 		/**
-		 *根据学号查询单个学生信息 数据并显示
+		 *根据工号查询单个教师信息 数据并显示
 		 * @param type
 		 */
 		public void shownumData(String num){
 			//1.调用 相关方法  查询数据
-			AddStudentInfoDao adao=new AddStudentInfoDao(this);
+			AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
 			this.adata=adao.getStudentnumData(num);
 			//2.构建列表搜需要的数据源
 			ArrayList<String> sdata=new ArrayList<String>();
 			for(int i=0;i<this.adata.size();i++){
 				//从仓库中 读取 第i条 记录
-				StudentInfo tem=this.adata.get(i);
+				TeacherInfo tem=this.adata.get(i);
 				//构建列表 每行显示内容
 				String str=tem.getNum()+"\t\t"+tem.getName()+"\t\t"+tem.getSex()+"\t\t"+tem.getAge()+"\t\t"+tem.getPro()+"\t\t"+tem.getMark();
 				//添加数据源
@@ -86,15 +86,15 @@ public class WeihuStudentInfoActivity extends Activity {
 			this.listshow.setAdapter(adapter);	
 		}
 		/**
-		 * 用户点击 查询出的学生信息列表 事件处理
+		 * 用户点击 查询出的教师信息列表 事件处理
 		 */
 		private void listAction(int num){
 		     //1.从数据中 获取第 num的数据
-			StudentInfo tem=this.adata.get(num);
-			//2.将获取的数据存储到公共数据区   ---在学生信息维护界面 获取
+			TeacherInfo tem=this.adata.get(num);
+			//2.将获取的数据存储到公共数据区   ---在教师信息维护界面 获取
 			ComData.item=tem;
 			//3.跳转到 信息修改 删除界面
-			Intent intent=new Intent(this,RepairStudentInfoActivity.class);
+			Intent intent=new Intent(this, RepairTeacherInfoActivity.class);
 			startActivity(intent);
 		}
 	@Override

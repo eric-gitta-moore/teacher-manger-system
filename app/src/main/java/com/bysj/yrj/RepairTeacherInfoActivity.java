@@ -14,11 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bysj.yrj.bean.StudentInfo;
-import com.bysj.yrj.dao.AddStudentInfoDao;
+import com.bysj.yrj.bean.TeacherInfo;
+import com.bysj.yrj.dao.AddTeacherInfoDao;
 import com.bysj.yrj.dao.ComData;
 
-public class RepairStudentInfoActivity extends Activity {
+public class RepairTeacherInfoActivity extends Activity {
 	//成员变量
 		TextView repaireditnum,repaireditname;
 		EditText repaireditage,repaireditmark;
@@ -30,7 +30,7 @@ public class RepairStudentInfoActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_repair_student_info);
+		setContentView(R.layout.activity_repair_teacher_info);
 
 	//调用方发 初始化 声明控件对象
 			this.init();
@@ -73,7 +73,7 @@ public class RepairStudentInfoActivity extends Activity {
 		 */
 		private void showOldStudentData(){
 			//获取存储的数据
-			StudentInfo tem=ComData.item;
+			TeacherInfo tem=ComData.item;
 			//显示获取的数据
 			this.repaireditnum.setText(tem.getNum());
 			this.repaireditname.setText(tem.getName());
@@ -104,21 +104,21 @@ public class RepairStudentInfoActivity extends Activity {
 			this.repaireditmark.setText(tem.getMark());
 		}
 		/**
-		 * 删除 学生信息按钮事件功能
+		 * 删除 教师信息按钮事件功能
 		 */
 		private void deleteAction(){
 			String  num=ComData.item.getNum();
 			//调用方法 删除相关信息
-			AddStudentInfoDao adao=new AddStudentInfoDao(this);
+			AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
 	    	long n=adao.deleteById(num);
-	    	String mes="学生信息删除失败";
+	    	String mes="教师信息删除失败";
 	    	if(n>0){
-	    		mes="学生信息删除成功";
+	    		mes="教师信息删除成功";
 	    	}
 	    	Toast.makeText(this, mes, Toast.LENGTH_LONG).show();
 		}
 		/**
-		 * 保存学生信息按钮事件功能
+		 * 保存教师信息按钮事件功能
 		 */
 		private void saveAction(){
 	    	//1.获取用户输入的信息（用户修改的信息）
@@ -140,12 +140,12 @@ public class RepairStudentInfoActivity extends Activity {
 	    	ComData.item.setPro(pro);
 	    	ComData.item.setMark(mark);
 	    	//调用 相关方法 修改数据库
-	    	AddStudentInfoDao adao=new AddStudentInfoDao(this);
+	    	AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
 	    	long n=adao.updateById(ComData.item);
 	    	//根据结果显示
-	    	String mes="学生信息修改失败";
+	    	String mes="教师信息修改失败";
 	    	   if(n>0){
-	    		   mes="学生信息修改成功";
+	    		   mes="教师信息修改成功";
 	    	   }
 	    	Toast.makeText(this, mes, Toast.LENGTH_LONG).show();
 		}

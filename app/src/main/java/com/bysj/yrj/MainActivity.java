@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
 	//成员变量
 	GridView gvinfo;
 	//定义数组 相关数据：图（int）、文字（String）
-	String[] title=new String[]{"学生信息添加","学生信息维护","学生信息查询","学生成绩添加","学生成绩维护","学生成绩查询","系统管理","使用帮助","退出软件"};
+	String[] title=new String[]{"教师信息添加","教师信息维护","教师信息查询","教师信息添加","教师信息维护","教师信息查询","系统管理","使用帮助","退出软件"};
 	int[] image=new int[]{R.drawable.addinfo,R.drawable.weihuinfo,R.drawable.showinfo,R.drawable.addscore,
 			R.drawable.weihuscore,R.drawable.showscore,R.drawable.userpass,R.drawable.help,R.drawable.exit};
 	ArrayList<Map<String,Object>> data;//用来包装的数据源 
@@ -68,32 +68,32 @@ public class MainActivity extends Activity {
       		//  界面文字 布局图片与跳转二级界面显示 管理
       		switch(id){
       		case 0:
-      			//点击了“学生信息添加”
-      			Intent intent0=new Intent(this,AddStudentInfoActivity.class);
+      			//点击了“教师信息添加”
+      			Intent intent0=new Intent(this, AddTeacherInfoActivity.class);
       			startActivity(intent0);
       			break;
       		case 1:
-      			//点击了“学生信息维护”
-      			Intent intent1=new Intent(this,WeihuStudentInfoActivity.class);
+      			//点击了“教师信息维护”
+      			Intent intent1=new Intent(this, WeihuTeacherInfoActivity.class);
       			startActivity(intent1);
       			break;
       		case 2:
-      			//点击了“学生信息查询”
-      			Intent intent2=new Intent(this,ShowStudentInfoActivity.class);
+      			//点击了“教师信息查询”
+      			Intent intent2=new Intent(this, ShowTeacherInfoActivity.class);
       			startActivity(intent2);
       			break;
       		case 3:
-      			//点击了“学生成绩添加”
-      			Intent intent3=new Intent(this,AddStudentScoreActivity.class);
+      			//点击了“教师信息添加”
+      			Intent intent3=new Intent(this, AddTeacherScoreActivity.class);
       			startActivity(intent3);
       			break;
       		case 4:
-      			//点击了“学生成绩维护”
-      			Intent intent4=new Intent(this,WeihuStudentScoreActivity.class);
+      			//点击了“教师信息维护”
+      			Intent intent4=new Intent(this, WeihuTeacherScoreActivity.class);
       			startActivity(intent4);
       			break;
       		case 5:
-      			//点击了“学生成绩查询”
+      			//点击了“教师信息查询”
       			Intent intent5=new Intent(this,ShowStudentScoreActivity.class);
       			startActivity(intent5);
       			break;
@@ -106,8 +106,8 @@ public class MainActivity extends Activity {
       			//点击了“使用帮助”
       			AlertDialog.Builder builder0=new AlertDialog.Builder(this);
   				builder0.setTitle("软件使用帮助");
-  				builder0.setMessage("软件共有9个功能：包括学生信息的添加、学生信息维护、学生信息查询、学生成绩添加" +
-  						"学生成绩维护、学生成绩查询、系统管理、使用帮助、软件退出。\n如果在使用过程中有问题请点击下方“联系作者”进行反馈！" +
+  				builder0.setMessage("软件共有9个功能：包括教师信息的添加、教师信息维护、教师信息查询、教师信息添加" +
+  						"教师信息维护、教师信息查询、系统管理、使用帮助、软件退出。\n如果在使用过程中有问题请点击下方“联系作者”进行反馈！" +
   						"\n软件作者：易瑞杰\n软件用途：2020年毕业设计\n完成时间：2019年9月20日");
   				//为“我知道了”按钮添加事件监听
   				builder0.setPositiveButton("我知道了", new OnClickListener() {

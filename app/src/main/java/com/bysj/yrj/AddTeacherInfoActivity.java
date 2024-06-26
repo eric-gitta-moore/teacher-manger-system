@@ -13,10 +13,10 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.bysj.yrj.bean.StudentInfo;
-import com.bysj.yrj.dao.AddStudentInfoDao;
+import com.bysj.yrj.bean.TeacherInfo;
+import com.bysj.yrj.dao.AddTeacherInfoDao;
 
-public class AddStudentInfoActivity extends Activity {
+public class AddTeacherInfoActivity extends Activity {
 	//成员变量
 	EditText editnum,editname,editage,editmark;
 	RadioButton radiomen,radiowomen;
@@ -27,7 +27,7 @@ public class AddStudentInfoActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_student_info);
+		setContentView(R.layout.activity_add_teacher_info);
 		//调用init()方法
         this.init();
       //提交按钮事件添加监听
@@ -81,20 +81,20 @@ public class AddStudentInfoActivity extends Activity {
         		String age=this.editage.getText().toString();
         		String pro=this.pro.getSelectedItem().toString();
     			String mark=this.editmark.getText().toString();
-    			//2.调用相关 存储添加学生信息
-    			StudentInfo tem=new StudentInfo();
+    			//2.调用相关 存储添加教师信息
+    			TeacherInfo tem=new TeacherInfo();
     			tem.setNum(num);
     			tem.setName(name);
     			tem.setSex(sex);
     			tem.setAge(age);
     			tem.setPro(pro);
     			tem.setMark(mark);
-    			AddStudentInfoDao adao=new AddStudentInfoDao(this);
+    			AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
     			long n=adao.addStudentInfo(tem);
     			//3.根据结果显示
-    			String mes="学生信息添加失败";
+    			String mes="教师信息添加失败";
     			if(n>0){
-    				mes="学生信息添加成功";
+    				mes="教师信息添加成功";
     			}
     			Toast.makeText(this, mes, Toast.LENGTH_LONG).show();
     	}

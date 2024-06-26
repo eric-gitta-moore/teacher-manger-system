@@ -11,27 +11,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bysj.yrj.bean.StudentInfo;
-import com.bysj.yrj.bean.StudentScore;
-import com.bysj.yrj.dao.AddStudentInfoDao;
-import com.bysj.yrj.dao.AddStudentScoreDao;
+import com.bysj.yrj.bean.TeacherInfo;
+import com.bysj.yrj.bean.TeacherScore;
+import com.bysj.yrj.dao.AddTeacherInfoDao;
+import com.bysj.yrj.dao.AddTeacherScoreDao;
 
 import java.util.ArrayList;
 
-public class AddStudentScoreActivity extends Activity {
+public class AddTeacherScoreActivity extends Activity {
 	//成员变量
 	TextView num,name;
 	EditText numtext,androidtext,javatext,htmltext;
 	Button showbut,addscorebut,resscorebut;
-	ArrayList<StudentInfo> adata;//存储 查询的结果
+	ArrayList<TeacherInfo> adata;//存储 查询的结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_student_score);
+		setContentView(R.layout.activity_add_teacher_score);
 		//调用init()方法
 		this.init();
 		
-		//为按学号查询按钮添加事件监听
+		//为按工号查询按钮添加事件监听
 		this.showbut.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -73,18 +73,18 @@ public class AddStudentScoreActivity extends Activity {
 		this.resscorebut=(Button) findViewById(R.id.resscorebutton);
 	}
 	/**
-	 * 通过输入的学生学号进行查询 ，从学生信息表中获取数据并显示
+	 * 通过输入的教师工号进行查询 ，从教师信息表中获取数据并显示
 	 * 
 	 */
 	public void getStudentnumData(String num){
 		//1.调用 相关方法  查询数据
-		AddStudentInfoDao adao=new AddStudentInfoDao(this);
+		AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
 		this.adata=adao.getStudentnumData(num);
 		//2.构建列表搜需要的数据源
 		//ArrayList<String> sdata=new ArrayList<String>();
 		for(int i=0;i<this.adata.size();i++){
 			//从仓库中 读取 第i条 记录
-			StudentInfo tem=this.adata.get(i);
+			TeacherInfo tem=this.adata.get(i);
 			//构建列表 每行显示内容
 			String str=tem.getNum();
 			String str1=tem.getName();
@@ -103,18 +103,18 @@ public class AddStudentScoreActivity extends Activity {
      		String java=this.javatext.getText().toString();
  			String html=this.htmltext.getText().toString();
  			//调用相关 存储
- 			StudentScore tem=new StudentScore();
+ 			TeacherScore tem=new TeacherScore();
  			tem.setNum(num);
  			tem.setName(name);
  			tem.setAndroid(android);
  			tem.setJava(java);
  			tem.setHtml(html);
- 			AddStudentScoreDao adao=new AddStudentScoreDao(this);
+ 			AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
  			long n=adao.addStudentScore(tem);
  			//3.根据结果显示
- 			String mes="学生成绩添加失败";
+ 			String mes="教师信息添加失败";
  			if(n>0){
- 				mes="学生成绩添加成功";
+ 				mes="教师信息添加成功";
  			}
  			Toast.makeText(this, mes, Toast.LENGTH_LONG).show();  		
  	}

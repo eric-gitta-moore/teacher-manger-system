@@ -6,15 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.bysj.yrj.bean.StudentScore;
+import com.bysj.yrj.bean.TeacherScore;
 
 import java.util.ArrayList;
 /**
- * 学生成绩添加表 相关
+ * 教师信息添加表 相关
  * @author k01
  *
  */
-public class AddStudentScoreDao {
+public class AddTeacherScoreDao {
 	//成员变量
 	MySqitHelper myhelper;
 	SQLiteDatabase st;//
@@ -26,7 +26,7 @@ public class AddStudentScoreDao {
 	String COL5="java";
 	String COL6="html";
 	//构造方法
-		public AddStudentScoreDao(Context context){
+		public AddTeacherScoreDao(Context context){
 			//创建打开数据库
 			this.myhelper=new MySqitHelper(context);
 			//连接，初始化管理员
@@ -46,15 +46,15 @@ public class AddStudentScoreDao {
 				this.st.execSQL(sql);
 			} catch (Exception e) {
 				// 数据表 创建 异常
-				Log.e("学生成绩表创建异常",e.toString());
+				Log.e("教师信息表创建异常",e.toString());
 			}
 		}
 /**
- * 添加学生成绩 
+ * 添加教师信息 
 * @param num,name,sex,age,pro,mark---包装为一个 StudentScore对象
 * @return long
  */
-		public long addStudentScore(StudentScore tem){
+		public long addStudentScore(TeacherScore tem){
 			ContentValues values=new ContentValues();
 			values.put(COL2, tem.getNum());
 			values.put(COL3, tem.getName());
@@ -68,13 +68,13 @@ public class AddStudentScoreDao {
 		}
 
 		/**
-		 * 查询添加的所有学生成绩  ，按所有进行查询
+		 * 查询添加的所有教师信息  ，按所有进行查询
 		 *@parma all
 		 *@return ArrayList<StudentScore>
 		 */
-		public ArrayList<StudentScore> getallscoreData(){
-			ArrayList<StudentScore> adata=new ArrayList<StudentScore>();
-			//查询添加的学生成绩表中所有的学生成绩
+		public ArrayList<TeacherScore> getallscoreData(){
+			ArrayList<TeacherScore> adata=new ArrayList<TeacherScore>();
+			//查询添加的教师信息表中所有的教师信息
 			String sql="select * from  "+TB_NAME;
 			
 			//管理员 发送查寻指令 
@@ -89,7 +89,7 @@ public class AddStudentScoreDao {
 				String java=cursor.getString(cursor.getColumnIndex(COL5));
 				String html=cursor.getString(cursor.getColumnIndex(COL6));
 				//
-				StudentScore tem=new StudentScore();
+				TeacherScore tem=new TeacherScore();
 				//
 				tem.setId(id);
 				tem.setNum(num);
@@ -106,13 +106,13 @@ public class AddStudentScoreDao {
 			return adata;
 		}
 		/**
-		 * 查询添加的学生成绩  按学号进行查询
+		 * 查询添加的教师信息  按工号进行查询
 		 *@parma num1
 		 *@return ArrayList<StudentScore>
 		 */
-		public ArrayList<StudentScore> getScorenumData(String num0){ 
-			ArrayList<StudentScore> adata=new ArrayList<StudentScore>();
-			//根据学号查询单个学生信息
+		public ArrayList<TeacherScore> getScorenumData(String num0){
+			ArrayList<TeacherScore> adata=new ArrayList<TeacherScore>();
+			//根据工号查询单个教师信息
 			String sql="select * from  "+TB_NAME+"  where "+COL2+"=?";
 			//管理员 发送查寻指令 
 			Cursor cursor=this.st.rawQuery(sql, new  String[]{num0});
@@ -126,7 +126,7 @@ public class AddStudentScoreDao {
 				String java=cursor.getString(cursor.getColumnIndex(COL5));
 				String html=cursor.getString(cursor.getColumnIndex(COL6));
 				//
-				StudentScore tem=new StudentScore();
+				TeacherScore tem=new TeacherScore();
 				//
 				tem.setId(id);
 				tem.setNum(num);
@@ -143,7 +143,7 @@ public class AddStudentScoreDao {
 			return adata;
 		}
 		/**
-		 * 根据 学号删除 对应的学生成绩
+		 * 根据 工号删除 对应的教师信息
 		 * @param num
 		 * @return long
 		 */
@@ -154,11 +154,11 @@ public class AddStudentScoreDao {
 			return n;
 		}
 		/**
-		 * 学生成绩数据修改
+		 * 教师信息数据修改
 		 * @param num,name,sex,age,pro,mark---包装为 StudentScore 类对象
 		 * @return long
 		 */
-		public long updateById(StudentScore tem){
+		public long updateById(TeacherScore tem){
 			ContentValues values=new ContentValues();
 			//设置要进行 修改的字段值
 			values.put(COL2, tem.getNum());
