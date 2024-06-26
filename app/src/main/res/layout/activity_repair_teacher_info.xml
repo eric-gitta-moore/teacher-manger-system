@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="43dp"
             android:gravity="center"
-            android:text="专\t\t业：" />
+            android:text="授\t\t课：" />
 
         <Spinner
             android:id="@+id/spinner1"

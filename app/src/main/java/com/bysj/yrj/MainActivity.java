@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
   				builder0.setTitle("软件使用帮助");
   				builder0.setMessage("软件共有9个功能：包括教师信息的添加、教师信息维护、教师信息查询、教师信息添加" +
   						"教师信息维护、教师信息查询、系统管理、使用帮助、软件退出。\n如果在使用过程中有问题请点击下方“联系作者”进行反馈！" +
-  						"\n软件作者：易瑞杰\n软件用途：2020年毕业设计\n完成时间：2019年9月20日");
+  						"\n软件作者：xxx\n软件用途：202x年毕业设计\n完成时间：xxxx年xx月xx日");
   				//为“我知道了”按钮添加事件监听
   				builder0.setPositiveButton("我知道了", new OnClickListener() {
   					

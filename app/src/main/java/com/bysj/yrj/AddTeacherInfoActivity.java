@@ -105,7 +105,7 @@ public class AddTeacherInfoActivity extends Activity {
     	   //设置性别默认为男进行选中显示
     	   this.radiomen.setChecked(true);
     	   this.editage.setText("");
-    	   //设置下拉选择框的专业为选择框的第一个
+    	   //设置下拉选择框的授课为选择框的第一个
     	   this.pro.setSelection(0);
     	   this.editmark.setText("");
        }
