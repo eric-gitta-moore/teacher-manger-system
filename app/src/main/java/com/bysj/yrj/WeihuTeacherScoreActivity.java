@@ -94,14 +94,14 @@ public class WeihuTeacherScoreActivity extends Activity {
 					//2.将获取的数据存储到公共数据区   ---在教师信息维护界面 获取
 					ComData.stem=tem;
 					//3.跳转到 成绩修改 删除界面
-					Intent intent=new Intent(this,RepairStudentScoreActivity.class);
+					Intent intent=new Intent(this, RepairTeacherScoreActivity.class);
 					startActivity(intent);
 				}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.weihu_student_score, menu);
+		getMenuInflater().inflate(R.menu.weihu_teacher_score, menu);
 		return true;
 	}
 

@@ -38,7 +38,7 @@ public class AddTeacherScoreActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				String num=numtext.getText().toString();
-				getStudentnumData(num);
+				getTeacherNumData(num);
 			}
 		});
 		 //添加按钮事件添加监听
@@ -76,10 +76,10 @@ public class AddTeacherScoreActivity extends Activity {
 	 * 通过输入的教师工号进行查询 ，从教师信息表中获取数据并显示
 	 * 
 	 */
-	public void getStudentnumData(String num){
+	public void getTeacherNumData(String num){
 		//1.调用 相关方法  查询数据
 		AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
-		this.adata=adao.getStudentnumData(num);
+		this.adata=adao.getTeachernumData(num);
 		//2.构建列表搜需要的数据源
 		//ArrayList<String> sdata=new ArrayList<String>();
 		for(int i=0;i<this.adata.size();i++){
@@ -110,7 +110,7 @@ public class AddTeacherScoreActivity extends Activity {
  			tem.setJava(java);
  			tem.setHtml(html);
  			AddTeacherScoreDao adao=new AddTeacherScoreDao(this);
- 			long n=adao.addStudentScore(tem);
+ 			long n=adao.addTeacherScore(tem);
  			//3.根据结果显示
  			String mes="教师信息添加失败";
  			if(n>0){
@@ -130,7 +130,7 @@ public class AddTeacherScoreActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_student_score, menu);
+		getMenuInflater().inflate(R.menu.add_teacher_score, menu);
 		return true;
 	}
 

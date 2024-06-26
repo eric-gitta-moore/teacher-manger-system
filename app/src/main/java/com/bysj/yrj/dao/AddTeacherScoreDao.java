@@ -51,10 +51,10 @@ public class AddTeacherScoreDao {
 		}
 /**
  * 添加教师信息 
-* @param num,name,sex,age,pro,mark---包装为一个 StudentScore对象
+* @param num,name,sex,age,pro,mark---包装为一个 TeacherScore对象
 * @return long
  */
-		public long addStudentScore(TeacherScore tem){
+		public long addTeacherScore(TeacherScore tem){
 			ContentValues values=new ContentValues();
 			values.put(COL2, tem.getNum());
 			values.put(COL3, tem.getName());
@@ -70,7 +70,7 @@ public class AddTeacherScoreDao {
 		/**
 		 * 查询添加的所有教师信息  ，按所有进行查询
 		 *@parma all
-		 *@return ArrayList<StudentScore>
+		 *@return ArrayList<TeacherScore>
 		 */
 		public ArrayList<TeacherScore> getallscoreData(){
 			ArrayList<TeacherScore> adata=new ArrayList<TeacherScore>();
@@ -108,7 +108,7 @@ public class AddTeacherScoreDao {
 		/**
 		 * 查询添加的教师信息  按工号进行查询
 		 *@parma num1
-		 *@return ArrayList<StudentScore>
+		 *@return ArrayList<TeacherScore>
 		 */
 		public ArrayList<TeacherScore> getScorenumData(String num0){
 			ArrayList<TeacherScore> adata=new ArrayList<TeacherScore>();
@@ -155,7 +155,7 @@ public class AddTeacherScoreDao {
 		}
 		/**
 		 * 教师信息数据修改
-		 * @param num,name,sex,age,pro,mark---包装为 StudentScore 类对象
+		 * @param num,name,sex,age,pro,mark---包装为 TeacherScore 类对象
 		 * @return long
 		 */
 		public long updateById(TeacherScore tem){

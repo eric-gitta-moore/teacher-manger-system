@@ -51,10 +51,10 @@ public class AddTeacherInfoDao {
 		}
 /**
  * 添加教师信息 
-* @param num,name,sex,age,pro,mark---包装为一个 StudentInfo对象
+* @param num,name,sex,age,pro,mark---包装为一个 TeacherInfo对象
 * @return long
  */
-		public long addStudentInfo(TeacherInfo tem){
+		public long addTeacherInfo(TeacherInfo tem){
 			ContentValues values=new ContentValues();
 			values.put(COL2, tem.getNum());
 			values.put(COL3, tem.getName());
@@ -71,9 +71,9 @@ public class AddTeacherInfoDao {
 		/**
 		 * 查询添加的所有教师信息  ，按所有进行查询
 		 *@parma all
-		 *@return ArrayList<StudentInfo>
+		 *@return ArrayList<TeacherInfo>
 		 */
-		public ArrayList<TeacherInfo> getStudentData(){
+		public ArrayList<TeacherInfo> getTeacherData(){
 			//初始化一个对象 
 			ArrayList<TeacherInfo> adata=new ArrayList<TeacherInfo>();
 			//查询添加的教师信息表中所有的教师信息
@@ -112,9 +112,9 @@ public class AddTeacherInfoDao {
 		/**
 		 * 查询添加的教师信息  按工号进行查询
 		 *@parma num0
-		 *@return ArrayList<StudentInfo>
+		 *@return ArrayList<TeacherInfo>
 		 */
-		public ArrayList<TeacherInfo> getStudentnumData(String num0){
+		public ArrayList<TeacherInfo> getTeachernumData(String num0){
 			ArrayList<TeacherInfo> adata=new ArrayList<TeacherInfo>();
 			//根据用户输入的工号查询单个教师信息
 			String sql="select * from  "+TB_NAME+"  where "+COL2+"=?";
@@ -161,7 +161,7 @@ public class AddTeacherInfoDao {
 		}
 		/**
 		 * 教师信息数据修改
-		 * @param num,name,sex,age,pro,mark---包装为 StudentInfo 类对象
+		 * @param num,name,sex,age,pro,mark---包装为 TeacherInfo 类对象
 		 * @return long
 		 */
 		public long updateById(TeacherInfo tem){
@@ -187,6 +187,6 @@ public class AddTeacherInfoDao {
 			this.myhelper.close();
 		}
 		public  static void main(String args[]){
-//			AddStudentInfoDao adao=new AddStudentInfoDao();
+//			AddTeacherInfoDao adao=new AddTeacherInfoDao();
 		}
 }

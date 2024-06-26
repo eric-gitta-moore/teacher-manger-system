@@ -44,25 +44,25 @@
             android:label="@string/title_activity_pass_repair"></activity>
         <activity
             android:name=".ShowTeacherInfoActivity"
-            android:label="@string/title_activity_show_student_info"></activity>
+            android:label="@string/title_activity_show_teacher_info"></activity>
         <activity
             android:name=".WeihuTeacherInfoActivity"
-            android:label="@string/title_activity_weihu_student_info"></activity>
+            android:label="@string/title_activity_weihu_teacher_info"></activity>
         <activity
             android:name=".RepairTeacherInfoActivity"
-            android:label="@string/title_activity_repair_student_info"></activity>
+            android:label="@string/title_activity_repair_teacher_info"></activity>
         <activity
             android:name=".AddTeacherScoreActivity"
-            android:label="@string/title_activity_add_student_score"></activity>
+            android:label="@string/title_activity_add_teacher_score"></activity>
         <activity
-            android:name=".ShowStudentScoreActivity"
-            android:label="@string/title_activity_show_student_score"></activity>
+            android:name=".ShowTeacherScoreActivity"
+            android:label="@string/title_activity_show_teacher_score"></activity>
         <activity
             android:name=".WeihuTeacherScoreActivity"
-            android:label="@string/title_activity_weihu_student_score"></activity>
+            android:label="@string/title_activity_weihu_teacher_score"></activity>
         <activity
-            android:name=".RepairStudentScoreActivity"
-            android:label="@string/title_activity_repair_student_score"></activity>
+            android:name=".RepairTeacherScoreActivity"
+            android:label="@string/title_activity_repair_teacher_score"></activity>
     </application>
 
 </manifest>

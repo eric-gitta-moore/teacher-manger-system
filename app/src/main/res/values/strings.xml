@@ -13,12 +13,12 @@
     <string name="title_activity_add_info">教师信息添加</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_pass_repair">用户密码修改</string>
-    <string name="title_activity_show_student_info">教师信息查询</string>
-    <string name="title_activity_weihu_student_info">教师信息维护</string>
-    <string name="title_activity_repair_student_info">教师信息修改</string>
-    <string name="title_activity_add_student_score">教师信息添加</string>
-    <string name="title_activity_show_student_score">教师信息查询</string>
-    <string name="title_activity_weihu_student_score">教师信息维护</string>
-    <string name="title_activity_repair_student_score">教师信息修改</string>
+    <string name="title_activity_show_teacher_info">教师信息查询</string>
+    <string name="title_activity_weihu_teacher_info">教师信息维护</string>
+    <string name="title_activity_repair_teacher_info">教师信息修改</string>
+    <string name="title_activity_add_teacher_score">教师信息添加</string>
+    <string name="title_activity_show_teacher_score">教师信息查询</string>
+    <string name="title_activity_weihu_teacher_score">教师信息维护</string>
+    <string name="title_activity_repair_teacher_score">教师信息修改</string>
 
 </resources>

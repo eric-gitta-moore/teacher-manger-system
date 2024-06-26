@@ -15,7 +15,7 @@ import com.bysj.yrj.bean.TeacherScore;
 import com.bysj.yrj.dao.AddTeacherScoreDao;
 import com.bysj.yrj.dao.ComData;
 
-public class RepairStudentScoreActivity extends Activity {
+public class RepairTeacherScoreActivity extends Activity {
 	TextView repairnum,repairname;
 	EditText repandroid,repjava,rephtml;
 	Button repbut,delbut;
@@ -26,7 +26,7 @@ public class RepairStudentScoreActivity extends Activity {
 		//调用方发 初始化 声明控件对象
 		this.init();
 		//调用方法   公共数据区 获取数据并显示
-		this.showOldStudentData();
+		this.showOldTeacherData();
 				//保存修改按钮
 				this.repbut.setOnClickListener(new OnClickListener() {
 					
@@ -60,7 +60,7 @@ public class RepairStudentScoreActivity extends Activity {
 	 * 从公共数据区 获取数据并显示
 	 * 
 	 */
-	private void showOldStudentData(){
+	private void showOldTeacherData(){
 		//获取存储的数据
 		TeacherScore tem=ComData.stem;
 		//显示获取的数据
@@ -113,7 +113,7 @@ public class RepairStudentScoreActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.repair_student_score, menu);
+		getMenuInflater().inflate(R.menu.repair_teacher_score, menu);
 		return true;
 	}
 

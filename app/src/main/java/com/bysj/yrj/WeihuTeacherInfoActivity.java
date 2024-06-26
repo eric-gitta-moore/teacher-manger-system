@@ -69,7 +69,7 @@ public class WeihuTeacherInfoActivity extends Activity {
 		public void shownumData(String num){
 			//1.调用 相关方法  查询数据
 			AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
-			this.adata=adao.getStudentnumData(num);
+			this.adata=adao.getTeachernumData(num);
 			//2.构建列表搜需要的数据源
 			ArrayList<String> sdata=new ArrayList<String>();
 			for(int i=0;i<this.adata.size();i++){
@@ -100,7 +100,7 @@ public class WeihuTeacherInfoActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.weihu_student_info, menu);
+		getMenuInflater().inflate(R.menu.weihu_teacher_info, menu);
 		return true;
 	}
 

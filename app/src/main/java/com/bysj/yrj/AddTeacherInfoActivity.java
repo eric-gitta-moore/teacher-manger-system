@@ -90,7 +90,7 @@ public class AddTeacherInfoActivity extends Activity {
     			tem.setPro(pro);
     			tem.setMark(mark);
     			AddTeacherInfoDao adao=new AddTeacherInfoDao(this);
-    			long n=adao.addStudentInfo(tem);
+    			long n=adao.addTeacherInfo(tem);
     			//3.根据结果显示
     			String mes="教师信息添加失败";
     			if(n>0){

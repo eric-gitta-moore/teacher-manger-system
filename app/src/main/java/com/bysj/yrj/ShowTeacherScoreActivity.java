@@ -16,7 +16,7 @@ import com.bysj.yrj.dao.AddTeacherScoreDao;
 
 import java.util.ArrayList;
 
-public class ShowStudentScoreActivity extends Activity {
+public class ShowTeacherScoreActivity extends Activity {
 	//成员变量
 	Button butscoreall,butscoreshow;
 	TextView scoreedit;
@@ -25,7 +25,7 @@ public class ShowStudentScoreActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_show_student_score);
+		setContentView(R.layout.activity_show_teacher_score);
 		//调用方法进行初始化
 				this.init();
 				//showdata在方法初始化之后调用进入直接进行显示教师的信息
@@ -109,7 +109,7 @@ public class ShowStudentScoreActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.show_student_score, menu);
+		getMenuInflater().inflate(R.menu.show_teacher_score, menu);
 		return true;
 	}
 

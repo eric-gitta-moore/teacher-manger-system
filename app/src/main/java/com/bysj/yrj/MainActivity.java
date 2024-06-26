@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
       			break;
       		case 5:
       			//点击了“教师信息查询”
-      			Intent intent5=new Intent(this,ShowStudentScoreActivity.class);
+      			Intent intent5=new Intent(this, ShowTeacherScoreActivity.class);
       			startActivity(intent5);
       			break;
       		case 6:

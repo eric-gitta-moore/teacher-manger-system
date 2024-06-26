@@ -35,7 +35,7 @@ public class RepairTeacherInfoActivity extends Activity {
 	//调用方发 初始化 声明控件对象
 			this.init();
 			//调用方法   公共数据区 获取数据并显示
-			this.showOldStudentData();
+			this.showOldTeacherData();
 					//保存按钮
 					this.butsave.setOnClickListener(new OnClickListener() {
 						
@@ -71,7 +71,7 @@ public class RepairTeacherInfoActivity extends Activity {
 		 * 从公共数据区 获取数据并显示
 		 * 
 		 */
-		private void showOldStudentData(){
+		private void showOldTeacherData(){
 			//获取存储的数据
 			TeacherInfo tem=ComData.item;
 			//显示获取的数据
@@ -153,7 +153,7 @@ public class RepairTeacherInfoActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.repair_student_info, menu);
+		getMenuInflater().inflate(R.menu.repair_teacher_info, menu);
 		return true;
 	}
 
